@@ -8,3 +8,14 @@ teja@gmail.com
 teja12
 
 test card for transaction: 4111 1111 1111 1111
+
+End points-
+get , "https://ecommerce918.herokuapp.com/" - gives welcome message
+post, "https://ecommerce918.herokuapp.com/register" -allows user to register
+post, "https://ecommerce918.herokuapp.com/login" -allows user to login
+get, "https://ecommerce918.herokuapp.com/products" -gives all products
+
+We have protected routes as well which requires user authorization
+get, "https://ecommerce918.herokuapp.com/purchases" -it will give the User his purchases
+post, "https://ecommerce918.herokuapp.com/purchases" -it will allows us to post details about the purchase
+get, "https://ecommerce918.herokuapp.com/order/:totalAmount" - it allows us to send payment details to frontend for making the purchase
