@@ -5,8 +5,12 @@ import "./purchases.css";
 function Purchases() {
   const [purchases, setPurchases] = useState([]);
 
+  // eslint-disable-next-line
   useEffect(async () => {
-    const res = await axios.get("http://localhost:3001/purchases", {
+    const deployedUrl = "https://ecommerce918.herokuapp.com/purchases";
+    //const localUrl= "http://localhost:3001/purchases"
+
+    const res = await axios.get(deployedUrl, {
       headers: { token: localStorage.getItem("token") },
     });
     //console.log(res.data);

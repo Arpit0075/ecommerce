@@ -18,11 +18,14 @@ function Address() {
 
   //making payment
   const handleOrder = async () => {
-    const res = await axios.get(`http://localhost:3001/order/${totalAmount}`, {
-      headers: {
-        token: localStorage.getItem("token"),
-      },
-    });
+    const res = await axios.get(
+      `https://ecommerce918.herokuapp.com/order/${totalAmount}`,
+      {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      }
+    );
     //console.log(res);
     if (res.status !== 200) return;
 
@@ -47,7 +50,7 @@ function Address() {
 
         //updating payment details on the database
         const newRes = await axios.post(
-          `http://localhost:3001/purchases`,
+          `https://ecommerce918.herokuapp.com/purchases`,
           {
             totalPrice: totalAmount,
             products: cart,

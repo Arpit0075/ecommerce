@@ -11,8 +11,8 @@ test card for transaction: 4111 1111 1111 1111
 
 End points-
 get , "https://ecommerce918.herokuapp.com/" - gives welcome message
-post, "https://ecommerce918.herokuapp.com/register" -allows user to register
-post, "https://ecommerce918.herokuapp.com/login" -allows user to login
+post, "https://ecommerce918.herokuapp.com/users/register" -allows user to register
+post, "https://ecommerce918.herokuapp.com/users/login" -allows user to login
 get, "https://ecommerce918.herokuapp.com/products" -gives all products
 
 We have protected routes as well which requires user authorization

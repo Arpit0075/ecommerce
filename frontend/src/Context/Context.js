@@ -12,7 +12,7 @@ const Context = ({ children }) => {
 
   // eslint-disable-next-line
   useEffect(async () => {
-    let res = await axios.get("http://localhost:3001/products/");
+    let res = await axios.get("https://ecommerce918.herokuapp.com/products");
     //console.log(res.data);
     let result = res.data;
     setstate({ ...state, products: result });

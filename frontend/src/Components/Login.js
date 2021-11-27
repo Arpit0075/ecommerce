@@ -28,10 +28,13 @@ function Login() {
     //console.log(login);
 
     try {
-      const res = await axios.post("http://localhost:3001/users/login", {
-        email: login.email,
-        password: login.password,
-      });
+      const res = await axios.post(
+        "https://ecommerce918.herokuapp.com/users/login",
+        {
+          email: login.email,
+          password: login.password,
+        }
+      );
 
       setMessage(res.data.message);
       setTimeout(() => {

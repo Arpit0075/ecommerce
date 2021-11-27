@@ -21,11 +21,14 @@ function Login() {
     e.preventDefault();
     //console.log(register);
     try {
-      const res = await axios.post("http://localhost:3001/users/register", {
-        name: register.name,
-        email: register.email,
-        password: register.password,
-      });
+      const res = await axios.post(
+        "https://ecommerce918.herokuapp.com/users/register",
+        {
+          name: register.name,
+          email: register.email,
+          password: register.password,
+        }
+      );
       if (res) {
         setMessage(res.data);
         setTimeout(() => {
