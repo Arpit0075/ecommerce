@@ -12,23 +12,31 @@ require("dotenv").config();
 
 app.use(cors());
 //connection db
-mongo.connect();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.send("hello!");
-});
+async function loadapp() {
+  try {
+    await mongo.connect();
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: false }));
 
-//routes
-app.use("/users", usersRouter);
-app.use("/products", productsRouter);
+    app.get("/", (req, res) => {
+      res.send("hello!");
+    });
 
-//middleware for authentication
-app.use(authorization.auth);
+    //routes
+    app.use("/users", usersRouter);
+    app.use("/products", productsRouter);
 
-//protected route
-app.use("/purchases", purchasesRouter);
-app.use("/order", orderRouter);
+    //middleware for authentication
+    app.use(authorization.auth);
 
-app.listen(port);
+    //protected route
+    app.use("/purchases", purchasesRouter);
+    app.use("/order", orderRouter);
+
+    app.listen(port);
+  } catch (err) {
+    console.log(err);
+  }
+}
+loadapp();
