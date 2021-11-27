@@ -8,12 +8,12 @@ const productsRouter = require("./Routes/products");
 const purchasesRouter = require("./Routes/purchases");
 const orderRouter = require("./Routes/order");
 const authorization = require("./Module/authorization");
+require("dotenv").config();
 
 app.use(cors());
 //connection db
 mongo.connect();
 app.use(express.json());
-app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
