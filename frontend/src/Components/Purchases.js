@@ -5,7 +5,7 @@ import "./purchases.css";
 function Purchases() {
   const [purchases, setPurchases] = useState([]);
 
-  // eslint-disable-next-line
+  //eslint-disable-next-line
   useEffect(async () => {
     const deployedUrl = "https://ecommerce918.herokuapp.com/purchases";
     //const localUrl= "http://localhost:3001/purchases"
