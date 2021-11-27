@@ -1,0 +1,15 @@
+.filters {
+  padding: 1rem;
+}
+.filters > h2 {
+  text-align: center;
+}
+.filters > Button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem;
+}
+.filters > .MuiRating-root {
+  text-align: center;
+  margin-left: 2.5rem;
+}

@@ -1,0 +1,36 @@
+.purchases {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.container {
+  display: flex;
+  border: 1px solid lightblue;
+  flex-wrap: wrap;
+  padding: 1rem;
+  overflow: hidden;
+  margin: 0.5rem;
+}
+.container > p {
+  margin-left: 1rem;
+}
+
+.product > img {
+  object-fit: contain;
+  width: 30%;
+  padding: 0.2rem;
+  margin-left: 0.1rem;
+}
+
+.product {
+  max-width: 80%;
+  display: flex;
+  margin: 0.3rem;
+  height: 100px;
+}
+
+.products-container {
+  display: flex;
+  padding: 1rem;
+}

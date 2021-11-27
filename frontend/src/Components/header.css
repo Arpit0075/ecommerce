@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  padding: 1rem;
+  background: #263238;
+  justify-content: space-between;
+  color: white;
+  align-items: center;
+}
+
+.header > .second {
+  display: flex;
+  align-items: center;
+}
+
+.header > .second > .svg {
+  margin-right: 0.5rem;
+}
+a {
+  color: white;
+  text-decoration: none;
+}

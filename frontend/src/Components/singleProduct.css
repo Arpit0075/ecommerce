@@ -1,0 +1,23 @@
+.s-product > img {
+  object-fit: contain;
+  width: 80%;
+  height: 80%;
+  margin-top: 1.5rem;
+}
+.s-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid lightblue;
+  margin: 1rem 0.5rem;
+  overflow: hidden;
+  box-shadow: 1px 1px 2px 2px lightpink;
+}
+.s-product > img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
