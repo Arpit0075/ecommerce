@@ -1,6 +1,6 @@
 const Product = require("../models/Products");
 
-exports.postProduct = async (req, res, next) => {
+module.exports.postProduct = async (req, res, next) => {
   const product = new Product({
     productName: req.body.productName,
     inStock: req.body.inStock,
@@ -13,12 +13,12 @@ exports.postProduct = async (req, res, next) => {
   res.send(response);
 };
 
-exports.getProducts = async (req, res, next) => {
+module.exports.getProducts = async (req, res, next) => {
   const response = await Product.find();
   res.json(response);
 };
 
-exports.updateProductQuantity = async (req, res, next) => {
+module.exports.updateProductQuantity = async (req, res, next) => {
   const id = req.params.id;
   const response = await Product.findByIdAndUpdate(id, {
     userQuantity: req.body.userQuantity,

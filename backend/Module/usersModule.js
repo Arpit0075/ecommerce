@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-exports.register = async (req, res) => {
+module.exports.register = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (user) return res.send("user already exist");
@@ -25,7 +25,7 @@ exports.register = async (req, res) => {
   }
 };
 
-exports.login = async (req, res) => {
+module.exports.login = async (req, res) => {
   //checking email if exists
   const user = await User.findOne({ email: req.body.email });
   if (!user) return res.send({ message: "email not registered" });

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-exports.auth = async (req, res, next) => {
+module.exports.auth = async (req, res, next) => {
   //check if token exists
   if (!req.headers["token"])
     return res.status(401).send({ message: "User Unauthorized!" });

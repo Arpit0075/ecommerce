@@ -6,7 +6,7 @@ var instance = new Razorpay({
   key_secret: process.env.kEY_SECRET,
 });
 
-exports.getOrder = async (req, res) => {
+module.exports.getOrder = async (req, res) => {
   //console.log(req);
   const totalAmount = req.params.totalAmount * 100;
   const amount = totalAmount;
