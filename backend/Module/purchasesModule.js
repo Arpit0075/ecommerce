@@ -1,10 +1,14 @@
 const Purchase = require("../Models/Purchases");
 
 module.exports.getPurchases = async (req, res) => {
-  const purchases = await Purchase.find({
-    purchasedBy: req.body.user.user.email,
-  });
-  res.send(purchases);
+  try {
+    const purchases = await Purchase.find({
+      purchasedBy: req.body.user.user.email,
+    });
+    res.send(purchases);
+  } catch (err) {
+    res.send(err);
+  }
 };
 
 module.exports.postPurchases = async (req, res) => {
