@@ -43,7 +43,7 @@ function Login() {
       setLogin({ ...login, email: "", password: "" });
 
       //console.log(res);
-      if (res.data) {
+      if (res.data.token) {
         localStorage.setItem("token", res.data.token);
         setAuth(true);
         navigate("/");
