@@ -20,30 +20,31 @@ function Purchases() {
 
   return (
     <div className="purchases">
-      {purchases.length === 0 > <h1>No items in your cart</h1>}
-      {purchases.map((p, i) => {
-        return (
-          <div className="container">
-            <p>{i + 1} </p>
-            <p>{p.date}</p>
-            <div className="products-container">
-              {p.products.map((e) => {
-                return (
-                  <div className="product">
-                    <img src={e.imgSrc} alt="" srcset="" />
-                    <p>
-                      {e.productName}: {e.userQty}
-                    </p>
-                  </div>
-                );
-              })}
+      {!purchases ? <h1>No purchases yet!</h1> : null}
+      {purchases &&
+        purchases.map((p, i) => {
+          return (
+            <div className="container">
+              <p>{i + 1} </p>
+              <p>{p.date}</p>
+              <div className="products-container">
+                {p.products.map((e) => {
+                  return (
+                    <div className="product">
+                      <img src={e.imgSrc} alt="" srcset="" />
+                      <p>
+                        {e.productName}: {e.userQty}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+              <p> Total Price: {p.totalPrice} </p>
+              <p> Order_id: {p.orderId} </p>
+              <p> Payment_id: {p.paymentId} </p>
             </div>
-            <p> Total Price: {p.totalPrice} </p>
-            <p> Order_id: {p.orderId} </p>
-            <p> Payment_id: {p.paymentId} </p>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 }
