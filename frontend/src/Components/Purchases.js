@@ -7,14 +7,18 @@ function Purchases() {
 
   //eslint-disable-next-line
   useEffect(async () => {
-    const deployedUrl = "https://ecommerce918.herokuapp.com/purchases";
-    //const localUrl= "http://localhost:3001/purchases"
+    try {
+      const deployedUrl = "https://ecommerce918.herokuapp.com/purchases";
+      //const localUrl= "http://localhost:3001/purchases"
 
-    const res = await axios.get(deployedUrl, {
-      headers: { token: localStorage.getItem("token") },
-    });
-    //console.log(res.data);
-    setPurchases(res.data);
+      const res = await axios.get(deployedUrl, {
+        headers: { token: localStorage.getItem("token") },
+      });
+      //console.log(res.data);
+      setPurchases(res.data);
+    } catch (err) {
+      console.log(err);
+    }
     // eslint-disable-next-line
   }, []);
 
