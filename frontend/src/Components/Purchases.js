@@ -20,6 +20,7 @@ function Purchases() {
 
   return (
     <div className="purchases">
+      {purchases.length === 0 > <h1>No items in your cart</h1>}
       {purchases.map((p, i) => {
         return (
           <div className="container">
