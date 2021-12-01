@@ -14,8 +14,12 @@ module.exports.postProduct = async (req, res, next) => {
 };
 
 module.exports.getProducts = async (req, res, next) => {
-  const response = await Product.find();
-  res.json(response);
+  try {
+    const response = await Product.find();
+    res.json(response);
+  } catch (err) {
+    res.send(err);
+  }
 };
 
 module.exports.updateProductQuantity = async (req, res, next) => {
