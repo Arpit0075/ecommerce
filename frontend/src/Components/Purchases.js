@@ -20,7 +20,7 @@ function Purchases() {
 
   return (
     <div className="purchases">
-      {!purchases ? <h1>No purchases yet!</h1> : null}
+      {purchases.length === 0 ? <h1>No purchases yet!</h1> : null}
       {purchases &&
         purchases.map((p, i) => {
           return (

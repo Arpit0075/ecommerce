@@ -29,8 +29,13 @@ function Login() {
           password: register.password,
         }
       );
-      if (res) {
+      if (res.data) {
         setMessage(res.data);
+        setTimeout(() => {
+          setMessage("");
+        }, 3000);
+      } else if (res.data.message) {
+        setMessage(res.data.message);
         setTimeout(() => {
           setMessage("");
         }, 3000);
