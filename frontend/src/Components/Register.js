@@ -39,11 +39,6 @@ function Login() {
         setTimeout(() => {
           setMessage("");
         }, 3000);
-      } else {
-        setMessage("falied");
-        setTimeout(() => {
-          setMessage("");
-        }, 3000);
       }
       setRegister({ ...register, name: "", email: "", password: "" });
     } catch (err) {

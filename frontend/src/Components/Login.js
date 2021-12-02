@@ -35,13 +35,13 @@ function Login() {
           password: login.password,
         }
       );
-
-      setMessage(res.data.message);
-      setTimeout(() => {
-        setMessage("");
-      }, 3000);
-      setLogin({ ...login, email: "", password: "" });
-
+      if (res.data.message) {
+        setMessage(res.data.message);
+        setTimeout(() => {
+          setMessage("");
+        }, 3000);
+        setLogin({ ...login, email: "", password: "" });
+      }
       //console.log(res);
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);

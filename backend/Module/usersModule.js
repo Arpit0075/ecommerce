@@ -6,7 +6,7 @@ require("dotenv").config();
 module.exports.register = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
-    if (user) return res.send("user already exist");
+    if (user) return res.send({ message: "user already exist" });
 
     //create new user
 
@@ -22,20 +22,27 @@ module.exports.register = async (req, res) => {
     res.send({ message: "user registered" });
   } catch (err) {
     console.log(err);
+    res.send(err.message);
   }
 };
 
 module.exports.login = async (req, res) => {
   //checking email if exists
-  const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.send({ message: "email not registered" });
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) return res.send({ message: "email not registered" });
 
-  //checking password if email matches
-  const isValid = await bcrypt.compare(req.body.password, user.password);
-  if (!isValid)
-    return res.send({ message: "email or password does not match" });
+    //checking password if email matches
+    const isValid = await bcrypt.compare(req.body.password, user.password);
+    if (!isValid)
+      return res.send({ message: "email or password does not match" });
 
-  //if password matches we generate jwt token
-  const token = jwt.sign({ user }, process.env.JWT_SECRET, { expiresIn: "5h" });
-  res.send({ token: token });
+    //if password matches we generate jwt token
+    const token = jwt.sign({ user }, process.env.JWT_SECRET, {
+      expiresIn: "5h",
+    });
+    res.send({ token: token });
+  } catch (err) {
+    res.send(err.message);
+  }
 };
