@@ -8,4 +8,5 @@ sample user login:
 teja@gmail.com
 teja12
 
-test card for transaction: 4111 1111 1111 1111
+Test card for transaction: 4111 1111 1111 1111
+For making transaction, please select card and enter the test card number and select any future date for the expiry date , enter random number for cvv.
