@@ -13,7 +13,6 @@ function Header() {
 
   //for auth
   const [auth, setAuth] = useContext(Token);
-  //console.log(auth);
 
   return (
     <div className="header">

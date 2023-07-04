@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./register.css";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import { BASE_URL } from "../Components/url";
 
 function Login() {
   const [register, setRegister] = useState({
@@ -19,16 +20,14 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //console.log(register);
+
     try {
-      const res = await axios.post(
-        "https://ecommerce918.herokuapp.com/users/register",
-        {
-          name: register.name,
-          email: register.email,
-          password: register.password,
-        }
-      );
+      let url = BASE_URL + "users/register";
+      const res = await axios.post(url, {
+        name: register.name,
+        email: register.email,
+        password: register.password,
+      });
       if (res.data) {
         setMessage(res.data);
         setTimeout(() => {

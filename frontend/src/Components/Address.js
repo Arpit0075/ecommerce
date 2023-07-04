@@ -4,6 +4,7 @@ import "./address.css";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { Cart } from "../Context/Context";
+import { BASE_URL } from "../Components/url";
 
 function Address() {
   const [state, setstate] = useContext(Cart);
@@ -18,17 +19,14 @@ function Address() {
 
   //making payment
   const handleOrder = async () => {
-    const res = await axios.get(
-      `https://ecommerce918.herokuapp.com/order/${totalAmount}`,
-      {
-        headers: {
-          token: localStorage.getItem("token"),
-        },
-      }
-    );
-    //console.log(res);
-    if (res.status !== 200) return;
+    let url1 = BASE_URL + `order/${totalAmount}`;
+    const res = await axios.get(url1, {
+      headers: {
+        token: localStorage.getItem("token"),
+      },
+    });
 
+    if (res.status !== 200) return;
     var options = {
       key_id: process.env.REACT_APP_KEY_ID, // Enter the Key ID generated from the Dashboard
       key_secret: process.env.REACT_APP_kEY_SECRET,
@@ -49,8 +47,9 @@ function Address() {
         };
 
         //updating payment details on the database
+        let url2 = BASE_URL + "purchases";
         const newRes = await axios.post(
-          `https://ecommerce918.herokuapp.com/purchases`,
+          url2,
           {
             totalPrice: totalAmount,
             products: cart,
@@ -64,7 +63,6 @@ function Address() {
             },
           }
         );
-        //console.log(newRes.data);
         if (newRes.data) {
           setstate({ ...state, cart: [] });
           setOrderSubmitted(true);

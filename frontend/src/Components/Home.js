@@ -8,14 +8,12 @@ function Home() {
   //for products
   const [state, setstate] = useContext(Cart);
   let products = state.products;
-  //console.log(state);
 
   return (
     <div
       style={{
         display: "flex",
         marginTop: "2rem",
-        // flexDirection: "column"
       }}
     >
       <div className="filters">

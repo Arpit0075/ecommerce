@@ -8,7 +8,6 @@ import Rating from "@mui/material/Rating";
 function SingleProduct({ product }) {
   const [state, setstate] = useContext(Cart);
   let cart = state.cart;
-  //console.log(cart);
 
   const addItem = (p) => {
     let array = [...cart];
@@ -25,7 +24,6 @@ function SingleProduct({ product }) {
   return (
     <div className="s-product" key={product._id}>
       <h3>{product.productName}</h3>
-      {/* <p> Rating: {product.rating}</p> */}
       <Rating name="read-only" value={product.rating} readOnly />
       <p>{product.price} Rs.</p>
       <img src={product.imgSrc} alt="imageze" srcSet="" />

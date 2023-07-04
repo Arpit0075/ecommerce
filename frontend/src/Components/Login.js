@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Token } from "../Context/AuthContext";
+import { BASE_URL } from "../Components/url";
 
 function Login() {
   let navigate = useNavigate();
@@ -25,16 +26,13 @@ function Login() {
   //login
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //console.log(login);
 
     try {
-      const res = await axios.post(
-        "https://ecommerce918.herokuapp.com/users/login",
-        {
-          email: login.email,
-          password: login.password,
-        }
-      );
+      let url = BASE_URL + "users/login";
+      const res = await axios.post(url, {
+        email: login.email,
+        password: login.password,
+      });
       if (res.data.message) {
         setMessage(res.data.message);
         setTimeout(() => {
@@ -42,7 +40,6 @@ function Login() {
         }, 3000);
         setLogin({ ...login, email: "", password: "" });
       }
-      //console.log(res);
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
         setAuth(true);

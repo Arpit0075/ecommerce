@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./purchases.css";
+import { BASE_URL } from "../Components/url";
 
 function Purchases() {
   const [purchases, setPurchases] = useState([]);
@@ -8,13 +9,12 @@ function Purchases() {
   //eslint-disable-next-line
   useEffect(async () => {
     try {
-      const deployedUrl = "https://ecommerce918.herokuapp.com/purchases";
+      let deployedUrl = BASE_URL + "purchases";
       //const localUrl= "http://localhost:3001/purchases"
 
       const res = await axios.get(deployedUrl, {
         headers: { token: localStorage.getItem("token") },
       });
-      //console.log(res.data);
       setPurchases(res.data);
     } catch (err) {
       console.log(err);
