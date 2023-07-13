@@ -23,8 +23,9 @@ function Home() {
           variant="contained"
           color="success"
           onClick={() => {
-            products.sort((a, b) => a - b);
-            setstate({ ...state, products });
+            let arr = [...products];
+            arr.sort((a, b) => a.price - b.price);
+            setstate({ ...state, products: arr });
           }}
         >
           Asecnding Pricing
@@ -33,8 +34,9 @@ function Home() {
           variant="contained"
           color="warning"
           onClick={() => {
-            products.sort((a, b) => b - a);
-            setstate({ ...state, products });
+            let arr = [...products];
+            arr.sort((a, b) => b.price - a.price);
+            setstate({ ...state, products: arr });
           }}
         >
           Decsending Pricing
